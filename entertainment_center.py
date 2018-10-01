@@ -19,7 +19,7 @@ POSTER_FILE_SIZE = "w500"
 def getTrendingMovies():
 
     url = "https://api.themoviedb.org/3/trending/movie/week?api_key=" + API_KEY
-    http_response = urllib.request.urlopen(url,None)
+    http_response = urllib.request.urlopen(url, None)
     jsonObject = json.load(http_response)
     return jsonObject
 
@@ -37,8 +37,9 @@ def createMovie(movieObject):
 # Returns a complete URL to a movie trailer on Youtube, based on the movie id
 # retrieved from 'The Movie Database' API.
 def getTrailerUrl(movieId):
-    url = "https://api.themoviedb.org/3/movie/" + str(movieId) + "/videos?api_key=" + API_KEY + "&language=en-US"
-    http_response = urllib.request.urlopen(url,None)
+    url = ("https://api.themoviedb.org/3/movie/{0}"
+           "/videos?api_key={1}&language=en-US").format(str(movieId), API_KEY)
+    http_response = urllib.request.urlopen(url, None)
     jsonObject = json.load(http_response)
     availableTrailers = jsonObject['results']
     if availableTrailers:
@@ -58,6 +59,6 @@ def createMovieList():
     return movieList
 
 
-# Main Code    
+# Main Code
 movies = createMovieList()
 fresh_tomatoes.open_movies_page(movies)
