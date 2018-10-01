@@ -1,4 +1,4 @@
-import movie
+import media
 import fresh_tomatoes
 import urllib.request
 import json
@@ -30,7 +30,7 @@ def createMovie(movieObject):
     movieId = movieObject['id']
     posterUrl = IMAGE_BASE_URL + POSTER_FILE_SIZE + movieObject['poster_path']
     trailerUrl = getTrailerUrl(movieId)
-    movieInstance = movie.Movie(title, posterUrl, trailerUrl)
+    movieInstance = media.Movie(title, posterUrl, trailerUrl)
     return movieInstance
 
 
@@ -60,5 +60,4 @@ def createMovieList():
 
 # Main Code    
 movies = createMovieList()
-print(len(movies))
 fresh_tomatoes.open_movies_page(movies)
