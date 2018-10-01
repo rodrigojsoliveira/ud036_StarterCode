@@ -24,13 +24,26 @@ def getTrendingMovies():
     return jsonObject
 
 
-# Creates an instance of class Movie from a JSON object.
+# Returns an instance of class Movie from a JSON object.
 def createMovie(movieObject):
-    title = movieObject['title']   
-    poster = IMAGE_BASE_URL + POSTER_FILE_SIZE + movieObject['poster_path']
-    trailer = ""
-    movieInstance = movie.Movie(title, poster, trailer)
+    title = movieObject['title']
+    movieId = movieObject['id']
+    posterUrl = IMAGE_BASE_URL + POSTER_FILE_SIZE + movieObject['poster_path']
+    trailerUrl = getTrailerUrl(movieId)
+    movieInstance = movie.Movie(title, posterUrl, trailerUrl)
     return movieInstance
+
+
+# Returns a complete URL to a movie trailer on Youtube.
+def getTrailerUrl(movieId):
+    url = "https://api.themoviedb.org/3/movie/" + str(movieId) + "/videos?api_key=" + API_KEY + "&language=en-US"
+    http_response = urllib.request.urlopen(url,None)
+    jsonObject = json.load(http_response)
+    availableTrailers = jsonObject['results']
+    if availableTrailers:
+        return "https://www.youtube.com/watch?v=" + availableTrailers[0]['key']
+    else:
+        return ""
 
 
 # Returns a list of Movie object to be used by the
