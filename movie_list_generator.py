@@ -24,7 +24,7 @@ def getTrendingMovies():
     return jsonObject
 
 
-# Returns an instance of class Movie from a JSON object.
+# Receives a JSON movie object and returns an instance of Movie class.
 def createMovie(movieObject):
     title = movieObject['title']
     movieId = movieObject['id']
@@ -34,7 +34,8 @@ def createMovie(movieObject):
     return movieInstance
 
 
-# Returns a complete URL to a movie trailer on Youtube.
+# Returns a complete URL to a movie trailer on Youtube, based on the movie id
+# retrieved from 'The Movie Database' API.
 def getTrailerUrl(movieId):
     url = "https://api.themoviedb.org/3/movie/" + str(movieId) + "/videos?api_key=" + API_KEY + "&language=en-US"
     http_response = urllib.request.urlopen(url,None)
@@ -46,7 +47,7 @@ def getTrailerUrl(movieId):
         return ""
 
 
-# Returns a list of Movie object to be used by the
+# Returns a list of Movie instances to be used by the
 # fresh_tomatoes.open_movies_page method.
 def createMovieList():
     movieList = []
@@ -59,4 +60,5 @@ def createMovieList():
 
 # Main Code    
 movies = createMovieList()
+print(len(movies))
 fresh_tomatoes.open_movies_page(movies)
