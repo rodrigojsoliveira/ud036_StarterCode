@@ -8,6 +8,7 @@ import json
 # https://developers.themoviedb.org/3/configuration/get-api-configuration
 # Since these values do not change often, a specific method to retrieve the
 # data was not implemented.
+# Create an API key in The Movie Database's website and replace variable API_KEY's value below.
 API_KEY = "your-api-key-here!!!"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
 POSTER_FILE_SIZE = "w500"
