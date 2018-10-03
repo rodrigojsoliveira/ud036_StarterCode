@@ -1,4 +1,4 @@
-# You must install Requests module in order to run this code.
+# You must install Requests library in order to run this code.
 # Use 'pip install requests' or 'easy_install requests' in your command line.
 import requests
 import media
