@@ -11,8 +11,8 @@ import json
 # Since these values do not change often, a specific method to retrieve the
 # data was not implemented.
 # Create an API key in The Movie Database's website and replace variable
-# API_KEY's value below. your-api-key-here!!!
-API_KEY = "fa71f4f6a5a629f8e49e3ed1bfe31a6e"
+# API_KEY's value below. 
+API_KEY = "your-api-key-here!!!"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
 POSTER_FILE_SIZE = "w500"
 
