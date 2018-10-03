@@ -6,7 +6,10 @@ This is project 01 of Udacity´s Full Stack Web Developer Nanodegree.
 Clone this repository or just download the zip archive on the repo´s [main page](https://github.com/rodrigojsoliveira/ud036_StarterCode).
 
 # Python Version
-This project is written in Python 3.7. It will not run on versions prior 3.0.
+This project is written in Python 3.7.
+
+# Dependencies
+The project uses Requests library for HTTP requests. To install, run 'pip install requests' or 'easy_install requests' in your command prompt, followed by ENTER. Visit [Requests' web site](http://docs.python-requests.org/en/master/) for installation instructions.
 
 # Running The Code
 Use Python's command line to run file **entertainment_center.py**. After a few moments, the movie list webpage will automatically open on your web browser. 
