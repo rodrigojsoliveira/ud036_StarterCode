@@ -11,7 +11,7 @@ import json
 # Since these values do not change often, a specific method to retrieve the
 # data was not implemented.
 # Create an API key in The Movie Database's website and replace variable
-# API_KEY's value below. 
+# API_KEY's value below.
 API_KEY = "your-api-key-here!!!"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
 POSTER_FILE_SIZE = "w500"
@@ -39,8 +39,7 @@ def createMovie(movieObject):
 # Returns a complete URL to a movie trailer on Youtube, based on the movie id
 # retrieved from 'The Movie Database' API.
 def getTrailerUrl(movieId):
-    url = ("https://api.themoviedb.org/3/movie/{0}"
-           "/videos?api_key={1}&language=en-US").format(str(movieId), API_KEY)
+    url = ("https://api.themoviedb.org/3/movie/{0}/videos?api_key={1}&language=en-US").format(str(movieId), API_KEY)  # noqa
     http_response = requests.get(url)
     jsonObject = http_response.json()
     availableTrailers = jsonObject['results']
